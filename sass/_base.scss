@@ -11,6 +11,8 @@
     --color-neutral-white: #FAFAFA;
 }
 
+$bp-large: 81.25em; // 1300px
+
 *,
 *::after,
 *::before {
@@ -33,4 +35,5 @@ body {
     line-height: 2.6rem;
     color: var(--color-neutral-grey);
     background-color: var(--color-neutral-white);
+    padding: 0 2rem;
 }
