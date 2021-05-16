@@ -42,6 +42,7 @@ Design:
 - CSS custom properties
 - SASS
 - Flexbox
+- Grid
 - Desktop-first workflow
 
 ### What I learned
