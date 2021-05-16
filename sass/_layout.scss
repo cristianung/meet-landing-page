@@ -1,6 +1,5 @@
-/*
-    || HEADER 
-*/
+
+/* || Header || */
 
 %hero-size {
     display: block;
@@ -20,21 +19,20 @@
     }
 }
 
+/* || Hero || */
+
 .feature {
     display: flex;
     justify-content: space-between;
     overflow: hidden;
-
+    max-width: 100%;
 
     &__hero--left {
         @extend %hero-size;
         background-image: url(../assets/desktop/image-hero-left.png);
         background-repeat: no-repeat;
         transform: translateX(-3.2rem);
-
-        @media only screen and (max-width: $bp-large) {
-            display: none;
-        }
+        background-size: cover;
     }
 
     &__hero--right {
@@ -42,11 +40,8 @@
         background-image: url(../assets/desktop/image-hero-right.png);
         background-repeat: no-repeat;
         transform: translateX(4rem);
-        margin-top: 9rem;
-
-        @media only screen and (max-width: $bp-large) {
-            display: none;
-        }
+        background-size: cover;
+        margin-top: 7rem;
     }
 
     &__box {
@@ -54,20 +49,22 @@
         text-align: center;
         width: 54rem;
     }
+}
 
-    &__hero--full {
+.hero-full {
+    min-width: 100%;
+    height: 30.3rem;
+    display: none;
+    margin-bottom: 7rem;
+
+    &--img {
         display: none;
-
-        @media only screen and (max-width: $bp-large) {
-            background-image: url(../assets/tablet/image-hero.png);
-            background-size: cover;
-        }
     }
 }
 
-/*
-    || BUTTON 
-*/
+
+/* || Button || */
+
 .button-box {
     margin-top: 3.2rem;
 }
@@ -97,7 +94,11 @@
         }
 
         &:hover {
-            background-color: var(--color-primary-blue-light);
+            background-color: #71C0D4;
+        }
+
+        &:active {
+            background-color: var(--color-primary-blue-dark);
         }
     }
 
@@ -108,10 +109,14 @@
         &:hover {
             background-color: var(--color-primary-violet-light);
         }
+
+        &:active {
+            background-color: var(--color-primary-violet-dark);
+        }
     }
 }
 
-/* || Typography */
+/* || Typography || */
 
 .heading {
     font-family: "Red Hat Display", sans-serif;
@@ -122,9 +127,10 @@
     margin-bottom: 3.4rem;
 }
 
+/* || Separator || */
+
 .separator {
     height: 18rem;
-    // background-color: #eee;
     margin-top: 6.2rem;
     margin-bottom: 8.4rem;
 
@@ -132,7 +138,7 @@
     justify-content: center;
     align-items: flex-end;
 
-    &__cirle {
+    &__circle {
         width: 5.6rem;
         height: 5.6rem;
         border: 1px solid #D8D8D8;
@@ -160,19 +166,19 @@
     }
 }
 
+/* || Gallery || */
+
 .gallery {
     max-width: 111rem;
     margin: 0 auto 8rem auto;
 
     &__container {
-        // background-color: palegreen;
         display: flex;
 
         & > *:not(:last-child) {
             margin-right: 3rem;
         }
     }
-
 
     &__img {
         display: block;
@@ -183,13 +189,11 @@
     }
 }
 
-/*
-    || DETAIL
-*/
+/* || Detail || */
 
 .detail {
-    width: 54rem; // TEST
-    height: 24rem; // TEST
+    width: 54rem; 
+    height: 24rem; 
     margin: 0 auto;
     text-align: center;
 
@@ -213,14 +217,13 @@
     }
 }
 
-/*
-    || FOOTER
-*/
+/* || Footer || */
 
 .footer {
     background-color: powderblue;
-    min-width: 100vh; // TEST
-    height: 30.8rem; // TEST
+    min-width: 100vw; 
+    min-height: 30.8rem;
+    
 
     background-image: linear-gradient(rgba(77, 151, 169, 0.85), rgba(77, 151, 169, 0.85)),
         url(../assets/desktop/image-footer.jpg);
@@ -234,6 +237,7 @@
         flex: 1;
         display: flex;
         justify-content: space-evenly;
+        width: 100%;
     }
 
     &__heading {
@@ -253,5 +257,121 @@
 
     &__btn {
         width: 19.3rem;
+    }
+}
+
+/*
+    || MEDIA QUERIES
+*/
+
+@media only screen and (max-width: $bp-large) {
+    
+    .feature {
+        flex-direction: column;
+        align-items: center;
+
+        &__box { width: 38rem; }
+
+        &__hero--left { display: none; }
+
+        &__hero--right { display: none; }
+    }
+
+    .hero-full {
+        display: block;
+
+        &--img {
+            background-image: url(../assets/tablet/image-hero.png);
+            background-size: cover;
+            background-position: top;
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+    }
+
+    .btn {
+        &--green { 
+            margin-bottom: 1.6rem; 
+        }
+    }
+
+    .separator {
+        margin-top: 5rem;
+        margin-bottom: 7.5rem;
+    }
+
+    .gallery {
+        &__container {
+            margin: 0 3.9rem;
+        }
+    }
+
+    .footer {
+        &__content {
+            flex-direction: column;
+            align-items: center;
+            min-height: 42rem;
+            text-align: center;
+        }
+    }
+}   
+
+@media only screen and (max-width: $bp-medium){
+    .heading { font-size: 4.8rem; }
+
+    .gallery {
+        &__container {
+            & > *:not(:last-child) { margin-right: 1.1rem; }
+        }
+    }
+
+    .detail {
+        width: 32.7rem; 
+        height: 28.4rem;
+
+        &__heading {
+            width: 32.7rem;
+            font-size: 3.2rem;
+        }
+    }
+
+    .footer {
+        &__paragraph { 
+            width: 100%; 
+        }
+    }
+}
+
+
+@media only screen and (max-width: $bp-small) {
+
+    .hero-full {
+        height: 15.3rem;
+        margin-bottom: 3rem;    
+    }
+
+
+    .heading { font-size: 4rem; }
+
+    .separator {
+        margin-top: 0;
+        margin-bottom: 5.5rem;
+    }
+
+    .gallery {
+        &__container {
+            & > *:not(:last-child) { margin: 0; }
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 2.4rem;
+        }
+    }
+
+    .footer {
+        &__heading {
+            font-size: 3.2rem;
+        }
     }
 }

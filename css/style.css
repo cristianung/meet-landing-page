@@ -19,7 +19,6 @@ html {
   font-size: 62.5%; }
 
 body {
-  min-height: 100vh;
   font-family: 'Red Hat Display', sans-serif;
   font-style: normal;
   font-size: 1.8rem;
@@ -27,11 +26,9 @@ body {
   line-height: 2.6rem;
   color: var(--color-neutral-grey);
   background-color: var(--color-neutral-white);
-  padding: 0 2rem; }
+  overflow-x: hidden; }
 
-/*
-    || HEADER 
-*/
+/* || Header || */
 .feature__hero--left, .feature__hero--right {
   display: block;
   width: 36.2rem;
@@ -46,39 +43,37 @@ body {
     width: 11.8rem;
     height: 2.8rem; }
 
+/* || Hero || */
 .feature {
   display: flex;
   justify-content: space-between;
-  overflow: hidden; }
+  overflow: hidden;
+  max-width: 100%; }
   .feature__hero--left {
     background-image: url(../assets/desktop/image-hero-left.png);
     background-repeat: no-repeat;
-    transform: translateX(-3.2rem); }
-    @media only screen and (max-width: 81.25em) {
-      .feature__hero--left {
-        display: none; } }
+    transform: translateX(-3.2rem);
+    background-size: cover; }
   .feature__hero--right {
     background-image: url(../assets/desktop/image-hero-right.png);
     background-repeat: no-repeat;
     transform: translateX(4rem);
-    margin-top: 9rem; }
-    @media only screen and (max-width: 81.25em) {
-      .feature__hero--right {
-        display: none; } }
+    background-size: cover;
+    margin-top: 7rem; }
   .feature__box {
     padding: 2rem;
     text-align: center;
     width: 54rem; }
-  .feature__hero--full {
-    display: none; }
-    @media only screen and (max-width: 81.25em) {
-      .feature__hero--full {
-        background-image: url(../assets/tablet/image-hero.png);
-        background-size: cover; } }
 
-/*
-    || BUTTON 
-*/
+.hero-full {
+  min-width: 100%;
+  height: 30.3rem;
+  display: none;
+  margin-bottom: 7rem; }
+  .hero-full--img {
+    display: none; }
+
+/* || Button || */
 .button-box {
   margin-top: 3.2rem; }
 
@@ -101,14 +96,18 @@ body {
     .btn--green span {
       color: var(--color-primary-blue-light); }
     .btn--green:hover {
-      background-color: var(--color-primary-blue-light); }
+      background-color: #71C0D4; }
+    .btn--green:active {
+      background-color: var(--color-primary-blue-dark); }
   .btn--violet {
     width: 13.9rem;
     background-color: var(--color-primary-violet-dark); }
     .btn--violet:hover {
       background-color: var(--color-primary-violet-light); }
+    .btn--violet:active {
+      background-color: var(--color-primary-violet-dark); }
 
-/* || Typography */
+/* || Typography || */
 .heading {
   font-family: "Red Hat Display", sans-serif;
   font-weight: 900;
@@ -117,6 +116,7 @@ body {
   line-height: 6.4rem;
   margin-bottom: 3.4rem; }
 
+/* || Separator || */
 .separator {
   height: 18rem;
   margin-top: 6.2rem;
@@ -124,7 +124,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-end; }
-  .separator__cirle {
+  .separator__circle {
     width: 5.6rem;
     height: 5.6rem;
     border: 1px solid #D8D8D8;
@@ -134,7 +134,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center; }
-    .separator__cirle::before {
+    .separator__circle::before {
       content: "";
       display: block;
       width: 1px;
@@ -145,6 +145,7 @@ body {
   .separator-2 {
     margin-top: 2.2rem; }
 
+/* || Gallery || */
 .gallery {
   max-width: 111rem;
   margin: 0 auto 8rem auto; }
@@ -159,9 +160,7 @@ body {
     object-fit: cover;
     border-radius: 8px; }
 
-/*
-    || DETAIL
-*/
+/* || Detail || */
 .detail {
   width: 54rem;
   height: 24rem;
@@ -183,13 +182,11 @@ body {
     line-height: 4.4rem;
     margin: 0 auto 3.2rem auto; }
 
-/*
-    || FOOTER
-*/
+/* || Footer || */
 .footer {
   background-color: powderblue;
-  min-width: 100vh;
-  height: 30.8rem;
+  min-width: 100vw;
+  min-height: 30.8rem;
   background-image: linear-gradient(rgba(77, 151, 169, 0.85), rgba(77, 151, 169, 0.85)), url(../assets/desktop/image-footer.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -198,7 +195,8 @@ body {
   .footer__content {
     flex: 1;
     display: flex;
-    justify-content: space-evenly; }
+    justify-content: space-evenly;
+    width: 100%; }
   .footer__heading {
     display: block;
     width: 35rem;
@@ -212,3 +210,70 @@ body {
     color: var(--color-neutral-white); }
   .footer__btn {
     width: 19.3rem; }
+
+/*
+    || MEDIA QUERIES
+*/
+@media only screen and (max-width: 81.25em) {
+  .feature {
+    flex-direction: column;
+    align-items: center; }
+    .feature__box {
+      width: 38rem; }
+    .feature__hero--left {
+      display: none; }
+    .feature__hero--right {
+      display: none; }
+  .hero-full {
+    display: block; }
+    .hero-full--img {
+      background-image: url(../assets/tablet/image-hero.png);
+      background-size: cover;
+      background-position: top;
+      width: 100%;
+      height: 100%;
+      display: block; }
+  .btn--green {
+    margin-bottom: 1.6rem; }
+  .separator {
+    margin-top: 5rem;
+    margin-bottom: 7.5rem; }
+  .gallery__container {
+    margin: 0 3.9rem; }
+  .footer__content {
+    flex-direction: column;
+    align-items: center;
+    min-height: 42rem;
+    text-align: center; } }
+
+@media only screen and (max-width: 48em) {
+  .heading {
+    font-size: 4.8rem; }
+  .gallery__container > *:not(:last-child) {
+    margin-right: 1.1rem; }
+  .detail {
+    width: 32.7rem;
+    height: 28.4rem; }
+    .detail__heading {
+      width: 32.7rem;
+      font-size: 3.2rem; }
+  .footer__paragraph {
+    width: 100%; } }
+
+@media only screen and (max-width: 23.44em) {
+  .hero-full {
+    height: 15.3rem;
+    margin-bottom: 3rem; }
+  .heading {
+    font-size: 4rem; }
+  .separator {
+    margin-top: 0;
+    margin-bottom: 5.5rem; }
+  .gallery__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2.4rem; }
+    .gallery__container > *:not(:last-child) {
+      margin: 0; }
+  .footer__heading {
+    font-size: 3.2rem; } }
