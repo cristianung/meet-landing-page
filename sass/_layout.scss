@@ -145,6 +145,7 @@
         border-radius: 2.9rem;
         font-weight: 900;
         font-size: 1.6rem;
+        background-color: var(--color-neutral-white);
 
         display: flex;
         justify-content: center;
@@ -163,6 +164,7 @@
 
     &-2 {
         margin-top: 2.2rem;
+        margin-bottom: -2.7rem;
     }
 }
 
@@ -223,7 +225,6 @@
     background-color: powderblue;
     min-width: 100vw; 
     min-height: 30.8rem;
-    
 
     background-image: linear-gradient(rgba(77, 151, 169, 0.85), rgba(77, 151, 169, 0.85)),
         url(../assets/desktop/image-footer.jpg);

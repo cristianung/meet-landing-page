@@ -131,6 +131,7 @@ body {
     border-radius: 2.9rem;
     font-weight: 900;
     font-size: 1.6rem;
+    background-color: var(--color-neutral-white);
     display: flex;
     justify-content: center;
     align-items: center; }
@@ -143,7 +144,8 @@ body {
       position: absolute;
       transform: translateY(-7rem); }
   .separator-2 {
-    margin-top: 2.2rem; }
+    margin-top: 2.2rem;
+    margin-bottom: -2.7rem; }
 
 /* || Gallery || */
 .gallery {
